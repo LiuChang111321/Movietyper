@@ -1,13 +1,22 @@
 package com.example.mpdemo1010;
 
-import org.junit.jupiter.api.Test;
+import com.example.mpdemo1010.entity.User;
+import com.example.mpdemo1010.mapper.UserMapper;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class ApplicationTests {
+import java.util.List;
 
+@SpringBootTest
+public class ApplicationTests {
+    @Autowired
+    private UserMapper userMapper;
+    //查询
     @Test
-    void contextLoads() {
+    public void findAll() {
+        List<User> users = userMapper.selectList(null);
+        System.out.println(users);
     }
 
 }
